@@ -1,3 +1,8 @@
+![](images/img1.png)
+![](images/imge.png)
+
+
+
 # Sistema Django - Gerenciamento de Clientes
 
 Aplicação web desenvolvida com **Django** para autenticação de usuários e gerenciamento de clientes, contando com um design limpo e moderno em modo escuro.
