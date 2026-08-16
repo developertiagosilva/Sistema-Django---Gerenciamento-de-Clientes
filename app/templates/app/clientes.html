@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Lista de Clientes{% endblock title %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 40px auto; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 8px;">
+    <h2>Painel de Clientes</h2>
+    <p>Bem-vindo ao sistema, <strong>{{ user.username }}</strong>!</p>
+    <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
+    <p>Aqui você poderá gerenciar os seus clientes em breve.</p>
+</div>
+{% endblock content %}

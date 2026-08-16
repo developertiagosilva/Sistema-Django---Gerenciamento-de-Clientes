@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <title>{% block title %}Minha Aplicação{% endblock title %}</title>
+</head>
+<body>
+    <!-- Cabeçalho visível apenas para usuários logados, alinhado e estilizado -->
+    {% if user.is_authenticated %}
+    <header class="app-header">
+        <div class="header-content">
+            <nav class="header-nav">
+                <a href="{% url 'clientes' %}" class="nav-link">Clientes</a>
+            </nav>
+            <div class="header-user">
+                <span class="welcome-text">Olá, <strong>{{ user.username }}</strong></span>
+                
+                <!-- O logout do Django exige método POST por segurança -->
+                <form action="{% url 'logout' %}" method="post" style="display:inline; margin: 0;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-sair">Sair</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    {% endif %}
+
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+</body>
+</html>

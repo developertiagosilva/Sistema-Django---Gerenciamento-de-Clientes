@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-box">
+        <h2>Entrar no Sistema</h2>
+
+        <!-- Exibe mensagem de erro caso o login falhe -->
+        {% if form.errors %}
+            <div class="error-msg">Usuário ou senha inválidos. Tente novamente.</div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <!-- Renderiza os campos do Django com as classes adequadas se preferir, ou o form.as_p estilizado -->
+            <div class="form-group">
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                {{ form.password }}
+            </div>
+            
+            <button type="submit" class="btn-login">Entrar</button>
+        </form>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <p style="color: #8a9bb8; font-size: 14px;">Não tem cadastro?</p>
+            <a href="{% url 'cadastrar' %}" style="color: #6496ff; text-decoration: none; font-weight: bold;">Criar uma conta agora</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

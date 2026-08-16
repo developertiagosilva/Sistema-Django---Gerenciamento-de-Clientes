@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Criar Conta{% endblock title %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-box">
+        <h2>Criar Conta</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <div style="text-align: left; color: #8a9bb8; margin-bottom: 15px;">
+                {{ form.as_p }}
+            </div>
+            
+            <button type="submit" class="btn-login" style="margin-top: 10px;">Cadastrar</button>
+        </form>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <p style="color: #8a9bb8; font-size: 14px;">Já tem uma conta?</p>
+            <a href="{% url 'login' %}" style="color: #6496ff; text-decoration: none; font-weight: bold;">Fazer Login</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
